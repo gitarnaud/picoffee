@@ -2,17 +2,26 @@
 
 This holds the code to make the Raspberry Pi control a coffee machine.
 
-Requirements : 
+## Requirements : 
 
 Download and install wiringpi library (http://wiringpi.com/)
 
+## Features : 
 
-Features : 
+* Start automatically based on cron expression
+> Add a line to call the cron/cron.bash script in your crontab
 
-- Start automatically based on cron expression
-- Stop after a certain time of inactivity
-- Get current active time
-- Get current state
+* Stop after a certain time of inactivity
+> Currently not configurable, set to 10 minutes
 
-- Start manually
-- Stop manually
+* Get current active time
+> bash exe/picoffee.bash running-time
+
+* Get current state
+> bash exe/picoffee.bash status
+
+* Start manually
+> bash exe/picoffee.bash start
+
+* Stop manually
+> bash exe/picoffee.bash stop
