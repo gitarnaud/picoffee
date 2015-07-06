@@ -3,7 +3,7 @@
 
 if [ "$1" == "start" ]
 then
-	running_time=`bash /root/picoffee/exe/picoffee.bash time`
+	running_time=`bash /root/picoffee/exe/picoffee.bash running-time`
 	if [[ "$running_time" == 0 ]] 
 	then
 		echo `date +%s` > /root/picoffee/data/start-time.txt
@@ -38,10 +38,15 @@ fi
 if [ "$1" == "running-time" ]
 then
 	start_time=`bash /root/picoffee/exe/picoffee.bash start-time`
-	current_time=`date +%s`
+	if [ "$start_time" == "0" ]
+	then
+		echo "0";
+	else
+		current_time=`date +%s`
 
-	running_time="$(($current_time-$start_time))"
-	echo $running_time
+		running_time="$(($current_time-$start_time))"
+		echo $running_time
+	fi
 fi
 
 if [ "$1" == "start-time" ]
