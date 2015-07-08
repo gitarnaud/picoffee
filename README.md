@@ -6,6 +6,12 @@ This holds the code to make the Raspberry Pi control a coffee machine.
 
 Download and install wiringpi library (http://wiringpi.com/)
 
+## Hardware
+
+* This has been tested on a Raspberry Pi running Raspbian.
+* Currently this activates the GPIO pin 7 in the wiringPi pin numbering scheme (http://wiringpi.com/wp-content/uploads/2013/03/gpio1.png)
+
+
 ## Features : 
 
 * Start automatically based on cron expression
