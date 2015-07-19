@@ -15,10 +15,12 @@ Download and install wiringpi library (http://wiringpi.com/)
 ## Features : 
 
 * Start automatically based on cron expression
-> Add a line to call the cron/cron.bash script in your crontab
+> Add 00 21 * * * root bash /root/picoffee/cron/start.bash to your crontab.
+
 
 * Stop after a certain time of inactivity
-> Currently not configurable, set to 10 minutes
+> Add */1 * * * * root bash /root/picoffee/cron/autostop.bash to your crontab.
+> Currently not configurable, set to 10 minutes.
 
 * Get current active time
 > bash exe/picoffee.bash running-time
