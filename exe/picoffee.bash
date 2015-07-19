@@ -8,27 +8,27 @@ then
 	then
 		echo `date +%s` > /root/picoffee/data/start-time.txt
 		gpio mode 7 out
-		gpio write 7 0
+		gpio write 7 1
 	fi
 fi
 
 if [ "$1" == "stop" ]
 then
 	echo "0" > /root/picoffee/data/start-time.txt
-	gpio write 7 1
+	gpio write 7 0
 fi
 
 if [ "$1" == "status" ]
 then
-	off=`gpio read 7`
-	if [ "$off" == "1" ]
+	on=`gpio read 7`
+	if [ "$on" == "0" ]
 	then
 		echo "off"
 	fi
-	if [ "$off" == "0" ]
+	if [ "$on" == "1" ]
 	then
 		echo "on"
-		tmp=`cat ../data/start-time.txt`
+		tmp=`cat data/start-time.txt`
 		start_time=`date --date @$tmp +"%Y-%m-%d %H:%M:%S"`
 		echo "Started on $start_time"	
 	fi
